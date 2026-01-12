@@ -1,0 +1,29 @@
+{
+  "name": "neon-rush",
+  "version": "1.0.0",
+  "description": "A synthwave-themed first-person endless runner car game",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+  },
+  "keywords": [
+    "game",
+    "racing",
+    "synthwave",
+    "three.js",
+    "endless-runner"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}

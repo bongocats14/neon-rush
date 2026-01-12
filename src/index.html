@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Rush</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- HUD Overlay -->
+        <div id="hud" class="hidden">
+            <div id="hud-left">
+                <div id="car-name" class="hud-item"></div>
+                <div id="speed" class="hud-item">0 <span>MPH</span></div>
+            </div>
+            <div id="hud-center">
+                <div id="score" class="hud-item">0</div>
+            </div>
+            <div id="hud-right">
+                <div id="nitro-container">
+                    <div id="nitro-label">NITRO</div>
+                    <div id="nitro-bar">
+                        <div id="nitro-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Power-up indicators -->
+        <div id="powerup-indicators" class="hidden">
+            <div id="shield-indicator" class="powerup-indicator hidden">SHIELD</div>
+            <div id="slowmo-indicator" class="powerup-indicator hidden">SLOW-MO</div>
+            <div id="multiplier-indicator" class="powerup-indicator hidden">2X SCORE</div>
+        </div>
+
+        <!-- Main Menu -->
+        <div id="main-menu" class="menu">
+            <h1 class="game-title">NEON RUSH</h1>
+            <p class="subtitle">A Synthwave Racing Experience</p>
+            <div id="high-score-display">HIGH SCORE: <span id="menu-high-score">0</span></div>
+            <button id="start-btn" class="menu-btn">START GAME</button>
+            <div class="controls-hint">
+                <p>A/D or Arrow Keys to switch lanes</p>
+                <p>SHIFT or W to activate Nitro</p>
+            </div>
+        </div>
+
+        <!-- Car Selection -->
+        <div id="car-select" class="menu hidden">
+            <h2 class="menu-title">SELECT YOUR RIDE</h2>
+            <div id="car-options">
+                <div class="car-card" data-car="bmw">
+                    <div class="car-preview bmw-preview"></div>
+                    <h3>2006 BMW M3</h3>
+                    <div class="car-stats">
+                        <div class="stat">
+                            <span class="stat-label">HANDLING</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">SPEED</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">NITRO</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 60%"></div></div>
+                        </div>
+                    </div>
+                    <p class="car-desc">Balanced performer</p>
+                </div>
+                <div class="car-card" data-car="supra">
+                    <div class="car-preview supra-preview"></div>
+                    <h3>Toyota MK4 Supra</h3>
+                    <div class="car-stats">
+                        <div class="stat">
+                            <span class="stat-label">HANDLING</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">SPEED</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 85%"></div></div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">NITRO</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                    <p class="car-desc">JDM legend, massive nitro</p>
+                </div>
+                <div class="car-card" data-car="corvette">
+                    <div class="car-preview corvette-preview"></div>
+                    <h3>2017 Corvette C6</h3>
+                    <div class="car-stats">
+                        <div class="stat">
+                            <span class="stat-label">HANDLING</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">SPEED</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">NITRO</span>
+                            <div class="stat-bar"><div class="stat-fill" style="width: 50%"></div></div>
+                        </div>
+                    </div>
+                    <p class="car-desc">Raw American power</p>
+                </div>
+            </div>
+            <p class="select-hint">Click a car or press 1, 2, 3</p>
+        </div>
+
+        <!-- Game Over -->
+        <div id="game-over" class="menu hidden">
+            <h2 class="menu-title game-over-title">GAME OVER</h2>
+            <div id="final-score">
+                <p>DISTANCE</p>
+                <span id="distance-value">0</span><span class="unit">m</span>
+            </div>
+            <div id="final-high-score">
+                <p>HIGH SCORE</p>
+                <span id="high-score-value">0</span><span class="unit">m</span>
+            </div>
+            <div id="new-record" class="hidden">NEW RECORD!</div>
+            <button id="restart-btn" class="menu-btn">PLAY AGAIN</button>
+            <button id="menu-btn" class="menu-btn secondary">MAIN MENU</button>
+        </div>
+    </div>
+
+    <!-- Load Three.js from CDN for simplicity -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "/lib/three/three.module.js",
+            "three/addons/": "/lib/three/addons/"
+        }
+    }
+    </script>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
