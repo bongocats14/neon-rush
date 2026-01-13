@@ -63,7 +63,7 @@ class Player {
             opacity: 0.9
         });
         this.dashboard = new THREE.Mesh(dashGeom, dashMaterial);
-        this.dashboard.position.set(0, 0.5, -0.8);
+        this.dashboard.position.set(0, 0.5, 0.8); // Positive z (in front)
         this.cockpitGroup.add(this.dashboard);
 
         // Dashboard accent lines
@@ -78,14 +78,14 @@ class Player {
             new THREE.BoxGeometry(2.8, 0.02, 0.02),
             accentMaterial
         );
-        topAccent.position.set(0, 0.66, -0.8);
+        topAccent.position.set(0, 0.66, 0.8);
         this.cockpitGroup.add(topAccent);
 
-        // Side pillars
+        // Side pillars (A-pillars framing the view)
         [-1.4, 1.4].forEach(x => {
             const pillarGeom = new THREE.BoxGeometry(0.1, 1.5, 0.1);
             const pillar = new THREE.Mesh(pillarGeom, dashMaterial);
-            pillar.position.set(x, 1, -0.9);
+            pillar.position.set(x, 1, 0.9);
             this.cockpitGroup.add(pillar);
 
             // Pillar glow
@@ -93,7 +93,7 @@ class Player {
                 new THREE.BoxGeometry(0.02, 1.4, 0.02),
                 accentMaterial
             );
-            glowPillar.position.set(x * 0.95, 1, -0.85);
+            glowPillar.position.set(x * 0.95, 1, 0.85);
             this.cockpitGroup.add(glowPillar);
         });
 
@@ -101,8 +101,8 @@ class Player {
         const wheelGeom = new THREE.TorusGeometry(0.2, 0.03, 8, 24);
         const wheelMaterial = new THREE.MeshBasicMaterial({ color: 0x222222 });
         const wheel = new THREE.Mesh(wheelGeom, wheelMaterial);
-        wheel.position.set(0, 0.8, -0.5);
-        wheel.rotation.x = -Math.PI / 4;
+        wheel.position.set(0, 0.8, 0.5);
+        wheel.rotation.x = Math.PI / 4; // Tilted toward player
         this.cockpitGroup.add(wheel);
 
         // Add to scene

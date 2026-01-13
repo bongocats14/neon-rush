@@ -82,7 +82,7 @@ class RoadManager {
             });
 
             const circle = new THREE.Mesh(geometry, material);
-            circle.position.z = -250 + i * 0.1;
+            circle.position.z = 350 - i * 0.1; // Positive z (in front of player)
             circle.position.y = 30 - i * 2;
             sunGroup.add(circle);
         }
@@ -92,7 +92,7 @@ class RoadManager {
         for (let i = 0; i < 6; i++) {
             const lineGeom = new THREE.PlaneGeometry(100, 2);
             const line = new THREE.Mesh(lineGeom, lineMaterial);
-            line.position.z = -249;
+            line.position.z = 349; // Positive z
             line.position.y = 35 - i * 8;
             sunGroup.add(line);
         }
@@ -111,7 +111,7 @@ class RoadManager {
         for (let i = 0; i < 1000; i++) {
             const x = (Math.random() - 0.5) * 500;
             const y = Math.random() * 150 + 20;
-            const z = -Math.random() * 300 - 50;
+            const z = Math.random() * 300 + 100; // Positive z (in front)
             vertices.push(x, y, z);
         }
 

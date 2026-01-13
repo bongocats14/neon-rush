@@ -51,7 +51,7 @@ function initThree() {
         1000
     );
     camera.position.set(0, 1.5, 0);
-    camera.lookAt(0, 1, -100);
+    camera.lookAt(0, 1, 100); // Look toward positive z where obstacles spawn
 
     // Renderer
     const canvas = document.getElementById('game-canvas');
