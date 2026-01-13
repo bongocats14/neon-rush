@@ -150,12 +150,12 @@ function setupInput() {
         switch (e.key.toLowerCase()) {
             case 'a':
             case 'arrowleft':
-                game.moveLeft();
+                game.moveRight();  // Swapped due to 180° camera rotation
                 audioManager.playLaneSwitch();
                 break;
             case 'd':
             case 'arrowright':
-                game.moveRight();
+                game.moveLeft();   // Swapped due to 180° camera rotation
                 audioManager.playLaneSwitch();
                 break;
             case 'w':

@@ -240,11 +240,11 @@ class RoadManager {
     update(deltaTime, speed) {
         const scrollAmount = speed * deltaTime;
 
-        // Update grid lines
+        // Update grid lines - scroll from horizon toward and past player
         this.gridLines.forEach(line => {
             line.mesh.position.z -= scrollAmount;
 
-            // Wrap around
+            // Wrap around - when line passes behind camera, move back to horizon
             if (line.mesh.position.z < -this.totalLength / 2) {
                 line.mesh.position.z += this.totalLength;
             }
